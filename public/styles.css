@@ -16,24 +16,54 @@ html, body {
   flex-direction: column;
 }
 
-input {
+#textbar {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-template-areas: "input button";
+  width: 600px;
+  align-items: center;
+}
+
+input[name=username] {
   width: 600px;
   border: 1px solid #ddd;
   height: 50px;
   padding: 0 20px;
   font-size: 14px;
+  border-radius: 22px;
+}
+
+#textbar input {
+  grid-area: input;
+  border: 1px solid #ddd;
+  height: 50px;
+  padding: 0 20px;
+  font-size: 14px;
+  justify-self: center;
+  min-width: 480px;
+  border-radius: 22px;
 }
 
 button {
-  width: 600px;
+  grid-area: button;
+  border-radius: 50px;
   height: 50px;
+  width: 50px;
   font-size: 14px;
   background: #069;
   text-align: center;
   line-height: 50px;
   font-weight: bold;
   color: #FFF;
-  margin-top: 10px;
+  justify-self: center;
+  border: none;
+  box-shadow: 1px 3px 6px rgba(0,0,0,0.4);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: none;
 }
 
 .messages {
@@ -43,6 +73,8 @@ button {
   border: 1px solid #ddd;
   padding: 20px;
   overflow-y: scroll;
+  border-top-left-radius: 22px;
+  border-bottom-left-radius: 22px;
 }
 
 ::-webkit-scrollbar-track {
@@ -54,4 +86,15 @@ button {
 }
 ::-webkit-scrollbar-thumb {
   background: #dad7d7;
+}
+
+input:focus {
+  box-shadow: 0 0 0 0;
+  border: 1px solid #ddd;
+  outline: 0;
+}
+
+button:focus {
+  border: 0 solid #fff;
+  outline: 0;
 }
